@@ -1,0 +1,17 @@
+@startuml
+
+actor MyAccount
+actor Owner2
+actor Owner3
+
+MyAccount --> (MyEtherWallet 1)
+Owner2 --> (Gnosis Multisig Wallet)
+Owner3 --> (MyEtherWallet 2)
+
+(MyEtherWallet 1) --> (Multisig Contract) : 1. submitTransaction MetaCoin SendCoin func
+(Gnosis Multisig Wallet) --> (Multisig Contract) : 2. confirmation
+(MyEtherWallet 2) --> (Multisig Contract)
+
+(Multisig Contract) --> (MetaCoin Contract) : 3. execute transaction SendCoin
+
+@enduml
